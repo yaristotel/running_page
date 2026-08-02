@@ -42,9 +42,9 @@ jobs:
 
       - name: Run generator from GPX files
         run: |
-          # Передаем два пути в PYTHONPATH, чтобы Python видел и корень, и внутренности run_page
           export PYTHONPATH=.:./run_page
-          python -m run_page.generator run_page/data.db || python run_page/generator/__init__.py run_page/data.db
+          # Запускаем через подмодуль db или sync, поддерживающие относительные импорты
+          python -m run_page.generator.db --db_name run_page/data.db || python -m run_page.generator.sync --db_name run_page/data.db
 
       - name: Push new runs
         run: |
