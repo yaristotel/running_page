@@ -8,10 +8,10 @@ on:
 
 env:
   RUN_TYPE: garmin
-  ATHLETE: yihong0618
-  TITLE: Yihong0618 Running
-  MIN_GRID_DISTANCE: 10
-  TITLE_GRID: Over 10km Runs
+  ATHLETE: hank
+  TITLE: hank Running
+  MIN_GRID_DISTANCE: 3
+  TITLE_GRID: Over 3km Runs
   BUILD_GH_PAGES: true
 
 jobs:
@@ -39,12 +39,13 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install -e . || echo "Editable install skipped"
 
-      # Запускаем родной обновлятор базы и генератор из пакета running_page
       - name: Run db updater & generator
         run: |
-          python run_page/db_updater.py
-          python -m run_page.generator run_page/data.db
+          export PYTHONPATH=.
+          python run_page/db_updater.py || true
+          python -m run_page.generator run_page/data.db --force-only-db || python -m run_page.generator run_page/data.db
 
       - name: Push new runs
         run: |
