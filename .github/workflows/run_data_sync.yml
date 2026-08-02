@@ -43,13 +43,14 @@ jobs:
       - name: Run generator from GPX files
         run: |
           export PYTHONPATH=.:./run_page
-          # Запускаем через подмодуль db или sync, поддерживающие относительные импорты
-          python -m run_page.generator.db --db_name run_page/data.db || python -m run_page.generator.sync --db_name run_page/data.db
+          # Запускаем генерацию с обработкой всех имеющихся GPX
+          python -m run_page.generator.sync --db_name run_page/data.db || python -m run_page.generator.db --db_name run_page/data.db
 
       - name: Push new runs
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
+          git add src/static/
           git add .
           git commit -m 'update static files from gpx' || echo 'nothing to commit'
           git push || echo 'nothing to push'
