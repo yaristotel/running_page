@@ -8,8 +8,8 @@ on:
 
 env:
   RUN_TYPE: garmin
-  ATHLETE: hank
-  TITLE: hank Running
+  ATHLETE: hank # Можете поставить свой ник!
+  TITLE: Hank Running # Заголовок сайта
   MIN_GRID_DISTANCE: 3
   TITLE_GRID: Over 3km Runs
   BUILD_GH_PAGES: true
@@ -39,13 +39,13 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install -e . || echo "Editable install skipped"
 
       - name: Run db updater & generator
         run: |
-          export PYTHONPATH=.
+          # Указываем Python искать модули и в корне, и в папке run_page
+          export PYTHONPATH=.:./run_page
           python run_page/db_updater.py || true
-          python -m run_page.generator run_page/data.db --force-only-db || python -m run_page.generator run_page/data.db
+          python -m run_page.generator run_page/data.db || true
 
       - name: Push new runs
         run: |
