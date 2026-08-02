@@ -8,8 +8,8 @@ on:
 
 env:
   RUN_TYPE: garmin
-  ATHLETE: hank # Можете поставить свой ник!
-  TITLE: Hank Running # Заголовок сайта
+  ATHLETE: HANK
+  TITLE: HANK Running
   MIN_GRID_DISTANCE: 3
   TITLE_GRID: Over 3km Runs
   BUILD_GH_PAGES: true
@@ -40,19 +40,17 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run db updater & generator
+      - name: Run generator from GPX files
         run: |
-          # Указываем Python искать модули и в корне, и в папке run_page
           export PYTHONPATH=.:./run_page
-          python run_page/db_updater.py || true
-          python -m run_page.generator run_page/data.db || true
+          python run_page/generator/main.py --db_name run_page/data.db || python run_page/generator/__init__.py run_page/data.db
 
       - name: Push new runs
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add .
-          git commit -m 'update static files from db' || echo 'nothing to commit'
+          git commit -m 'update static files from gpx' || echo 'nothing to commit'
           git push || echo 'nothing to push'
 
       - name: Set Output
