@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Garmin Connect" version="1.1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+  <metadata>
+    <link href="connect.garmin.com">
+      <text>Garmin Connect</text>
+    </link>
+    <time>2026-02-18T14:33:14.000Z</time>
+  </metadata>
+  <trk>
+    <name>Москва - Шесть</name>
+    <type>running</type>
+    <trkseg>
+      <trkpt lat="55.3064010478556156158447265625" lon="37.019036114215850830078125">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:21.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>141</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.30639090575277805328369140625" lon="37.0189796201884746551513671875">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:22.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>141</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.306380093097686767578125" lon="37.0188971422612667083740234375">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:23.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>141</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.30636995099484920501708984375" lon="37.01881290413439273834228515625">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:24.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>141</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.30636274255812168121337890625" lon="37.0187680609524250030517578125">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:25.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>141</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.30635788105428218841552734375" lon="37.01873763464391231536865234375">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:26.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>141</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.306353271007537841796875" lon="37.0187087170779705047607421875">
+        <ele>218</ele>
+        <time>2026-02-18T14:54:27.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>143</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.3063487447798252105712890625" lon="37.01868030242621898651123046875">
+        <ele>218.1999969482421875</ele>
+        <time>2026-02-18T14:54:28.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>145</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="55.306344218552112579345703125" lon="37.0186520554125308990478515625">
+        <ele>218.1999969482421875</ele>
+        <time>2026-02-18T14:54:29.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:atemp>7.0</ns3:atemp>
+            <ns3:hr>145</ns3:hr>
+            <ns3:cad>82</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
