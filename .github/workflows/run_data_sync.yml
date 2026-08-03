@@ -38,21 +38,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip setuptools wheel
+          pip install --upgrade pip
           pip install -r requirements.txt
-          pip install gpxpy timezonefinder pytz
 
       - name: Run generator from GPX files
         run: |
           export PYTHONPATH=.
-          
-          # Переносим GPX файлы в стандартную директорию activities, если требуется
-          mkdir -p activities
-          cp GPX_OUT/*.gpx activities/ 2>/dev/null || true
-
-          # Запуск генерации базы и JSON
-          python run_page/gpx_to_db.py || python -m run_page.gpx_to_db || python run_page/gpx_sync.py --gpx-dir GPX_OUT
-          python run_page/gen_api.py || python -m run_page.gen_api || true
+          python -m run_page gpx_sync --gpx-dir activities
 
       - name: Push new runs
         run: |
@@ -60,7 +52,6 @@ jobs:
           git config --local user.name 'GitHub Action'
           git add src/static/
           git add run_page/
-          git add activities/
           git add .
           git commit -m 'update static files from gpx' || echo 'nothing to commit'
           git push || echo 'nothing to push'
