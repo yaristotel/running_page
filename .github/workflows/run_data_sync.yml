@@ -8,8 +8,8 @@ on:
 
 env:
   RUN_TYPE: garmin
-  ATHLETE: hank
-  TITLE: Hank Running
+  ATHLETE: Хэнк
+  TITLE: Хэнк ебланит
   MIN_GRID_DISTANCE: 3
   TITLE_GRID: Over 3km Runs
   BUILD_GH_PAGES: true
@@ -32,18 +32,27 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.10'
           cache: pip
           cache-dependency-path: 'requirements.txt'
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
+          pip install gpxpy timezonefinder pytz
 
       - name: Run generator from GPX files
         run: |
           export PYTHONPATH=.
-          python run_page/gpx_sync.py --gpx-dir GPX_OUT --no-timezone
+          
+          # Переносим GPX файлы в стандартную директорию activities, если требуется
+          mkdir -p activities
+          cp GPX_OUT/*.gpx activities/ 2>/dev/null || true
+
+          # Запуск генерации базы и JSON
+          python run_page/gpx_to_db.py || python -m run_page.gpx_to_db || python run_page/gpx_sync.py --gpx-dir GPX_OUT
+          python run_page/gen_api.py || python -m run_page.gen_api || true
 
       - name: Push new runs
         run: |
@@ -51,6 +60,7 @@ jobs:
           git config --local user.name 'GitHub Action'
           git add src/static/
           git add run_page/
+          git add activities/
           git add .
           git commit -m 'update static files from gpx' || echo 'nothing to commit'
           git push || echo 'nothing to push'
