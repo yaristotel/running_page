@@ -9,7 +9,7 @@ on:
 env:
   RUN_TYPE: garmin
   ATHLETE: hank
-  TITLE: hank Running
+  TITLE: Hank Running
   MIN_GRID_DISTANCE: 3
   TITLE_GRID: Over 3km Runs
   BUILD_GH_PAGES: true
@@ -43,7 +43,7 @@ jobs:
       - name: Run generator from GPX files
         run: |
           export PYTHONPATH=.
-          python run_page/gpx_sync.py --gpx-dir GPX_OUT
+          python run_page/gpx_sync.py --gpx-dir GPX_OUT --no-timezone
 
       - name: Push new runs
         run: |
